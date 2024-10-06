@@ -129,6 +129,10 @@
   <ItemGroup>
     <ClCompile Include="shrinker.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="rle_compressor.h" />
+    <ClInclude Include="rle_decompressor.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
