@@ -1,6 +1,6 @@
 // shrinker.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
+#include "input_handler.h"
 #include "rle_compressor.h"
 #include "rle_decompressor.h"
 #include <iostream>
@@ -42,10 +42,37 @@ void compressRLE(const std::string& inputFilePath, const std::string& outputFile
     outputFile.close();
 }
 
+void decompressRLE(const std::string& inputFilePath, const std::string& outputFilePath) {
+    std::ifstream inputFile(inputFilePath);
+    std::ofstream outputFile(outputFilePath);
+
+    if (!inputFile || !outputFile) {
+        std::cerr << "Error opening files." << std::endl;
+        return;
+    }
+
+    int count;
+    char character;
+
+    while (inputFile >> count >> character) {
+        for (int i = 0; i < count; ++i) {
+            outputFile << character;
+        }
+    }
+
+    inputFile.close();
+    outputFile.close();
+}
 
 
-int main() {
+int main(int argc, char* argv[]) {
 
+    std::string rleInputFilePath;
+    std::string rleCompressedFilePath;
+    std::string rleDecompressedFilePath;
 
-
+    std::cout << "RLE Compression:" << std::endl;
+    handleInput(argc, argv, rleInputFilePath, rleCompressedFilePath, rleDecompressedFilePath);
+    compressRLE(rleInputFilePath, rleCompressedFilePath);
+    decompressRLE(rleCompressedFilePath, rleDecompressedFilePath);
 }

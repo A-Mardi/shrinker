@@ -127,9 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="input_handler.cpp" />
     <ClCompile Include="shrinker.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="input_handler.h" />
     <ClInclude Include="rle_compressor.h" />
     <ClInclude Include="rle_decompressor.h" />
   </ItemGroup>
